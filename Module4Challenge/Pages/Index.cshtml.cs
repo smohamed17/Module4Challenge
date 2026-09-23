@@ -23,10 +23,10 @@ public class IndexModel : PageModel
     };
 
      // this will display the current jokes on the screen. 
-    public string[] CurrentJoke {get; set;} = new string[1];
+    public string[] CurrentJoke {get; set;} = new string[1]; // this is creating an new array for the list of jokes. 
 
     // this refers to the 2 jokes that will be display on the screen. 
-    public int NumOfJokes {get; set; } = 1;
+    public int NumOfJokes {get; set; } = 2; 
 
     public bool ShowResults {get; set; } = false;
 
@@ -35,19 +35,20 @@ public class IndexModel : PageModel
        RandomJoke();
     }
 
-    public void RandomJoke()
+    public void RandomJoke() // using this void, will provide me with the forloop and while loop method.
     {
         CurrentJoke = new string[NumOfJokes];
-        int jokecount = 0;
+        int jokecount = 0; 
 
         while (jokecount < NumOfJokes)
         {
             int dadJokeIndex = Random.Shared.Next(DadJokes.Length);
             string jokeHere = DadJokes[dadJokeIndex];
 
-            if (!CurrentJoke.Contains(jokeHere))
+            if (!CurrentJoke.Contains(jokeHere)) // if it doesn't exist it will not be added. 
             {
                 CurrentJoke[jokecount] = jokeHere;
+                jokecount++; // this will generate the two jokes. 
             }
         }
     }
