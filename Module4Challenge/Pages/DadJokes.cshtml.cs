@@ -23,22 +23,20 @@ public class IndexModel : PageModel
     };
 
     [BindProperty] // this will display the current jokes on the screen. 
-    public string[] CurrentJoke {get; set;} = new string[2];
+    public string[] CurrentJoke {get; set;} = new string[1];
 
-    
-    public int NumOfJokes {get; set; } = 2;
+    // this refers to the 2 jokes that will be display on the screen. 
+    public int NumOfJokes {get; set; } = 1;
 
     public bool ShowResults {get; set; } = false;
 
     public void OnGet()
     {
-       GetRandomJoke();
-
+       RandomJoke();
     }
 
-    public void OnPost()
+    public void RandomJoke()
     {
-        ShowResults = true;
         CurrentJoke = new string[NumOfJokes];
         int jokecount = 0;
 
@@ -46,8 +44,17 @@ public class IndexModel : PageModel
         {
             int dadJokeIndex = Random.Shared.Next(DadJokes.Length);
             string joke = DadJokes[dadJokeIndex];
-        }
 
-        
+            if (!CurrentJoke.Contains(joke))
+            {
+                CurrentJoke[jokecount] = joke;
+            }
+        }
+    }
+
+    public void OnPost()
+    {
+        ShowResults = true;
+        RandomJoke(); 
     }
 }
