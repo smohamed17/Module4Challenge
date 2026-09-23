@@ -1,5 +1,5 @@
 @page
-@model IndexModel
+@model Module4Challenge.Pages.IndexModel
 @{
     ViewData["Title"] = "Dad Jokes Generator";
 }
@@ -7,24 +7,22 @@
 <div class="container mt-3">
 
     <h1 class="text-align">Dad Jokes Generator</h1>
-    
-    <div class="card-body">
-        @foreach (string joke in Model.CurrentJoke){
-            <h4 class="mb-0 mt-3">Here are the dad jokes: </h4>
-            <p class="card-text">@joke</p>
-        }
+    <!-- using the card method to display it as a card. -->
+   
+   <div class="card mt-4">
+        <div class="card-body">
+            @foreach (string joke in Model.CurrentJoke){
+                <h4 class="mb-3">Here are the dad jokes: </h4>
+                <p class="card-text">@joke</p>
+            }
 
-    </div>
-
+        </div>
+    </div
+<!-- this will submit the button for the user to generate the dad joke. -->
     <div class="text-align">
         <form method="post">
-            <button type="submit" class="btn btn-secondary">
-                More Jokes
-            </button>
+            <button type="submit" class="btn btn-primary"> More Jokes </button>
         </form>
     </div>
-
-
-
 
 </div>

@@ -22,7 +22,7 @@ public class IndexModel : PageModel
         "I told my wife she should embrace her mistakes. She gave me a hug."
     };
 
-    [BindProperty] // this will display the current jokes on the screen. 
+     // this will display the current jokes on the screen. 
     public string[] CurrentJoke {get; set;} = new string[1];
 
     // this refers to the 2 jokes that will be display on the screen. 
@@ -30,7 +30,7 @@ public class IndexModel : PageModel
 
     public bool ShowResults {get; set; } = false;
 
-    public void OnGet()
+    public void OnGet() // this will generate an random joke from the list. 
     {
        RandomJoke();
     }
