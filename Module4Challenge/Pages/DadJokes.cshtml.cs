@@ -22,18 +22,32 @@ public class IndexModel : PageModel
         "I told my wife she should embrace her mistakes. She gave me a hug."
     };
 
+    [BindProperty] // this will display the current jokes on the screen. 
+    public string[] CurrentJoke {get; set;} = new string[2];
+
+    
+    public int NumOfJokes {get; set; } = 2;
+
     public bool ShowResults {get; set; } = false;
 
     public void OnGet()
     {
-       Random rnd = new Random();
-       int DadJokesDisplay = rnd.Next(DadJokes.Length);
+       GetRandomJoke();
 
     }
 
-    public void OnPost(int JokesDisplay1, int JokesDisplay2)
+    public void OnPost()
     {
         ShowResults = true;
+        CurrentJoke = new string[NumOfJokes];
+        int jokecount = 0;
+
+        while (jokecount < NumOfJokes)
+        {
+            int dadJokeIndex = Random.Shared.Next(DadJokes.Length);
+            string joke = DadJokes[dadJokeIndex];
+        }
+
+        
     }
 }
-
