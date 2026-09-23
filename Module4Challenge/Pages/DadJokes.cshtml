@@ -7,17 +7,24 @@
 <div class="container mt-3">
 
     <h1 class="text-align">Dad Jokes Generator</h1>
+    
     <div class="card-body">
-        <h4>Here are the dad jokes: </h4>
+        @foreach (string joke in Model.CurrentJoke){
+            <h4 class="mb-0 mt-3">Here are the dad jokes: </h4>
+            <p class="card-text">@joke</p>
+        }
 
     </div>
 
+    <div class="text-align">
+        <form method="post">
+            <button type="submit" class="btn btn-secondary">
+                More Jokes
+            </button>
+        </form>
+    </div>
 
-    @for (string
 
-    <form method="post">
-
-    </form>
 
 
 </div>

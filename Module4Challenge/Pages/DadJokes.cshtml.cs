@@ -43,11 +43,11 @@ public class IndexModel : PageModel
         while (jokecount < NumOfJokes)
         {
             int dadJokeIndex = Random.Shared.Next(DadJokes.Length);
-            string joke = DadJokes[dadJokeIndex];
+            string jokeHere = DadJokes[dadJokeIndex];
 
-            if (!CurrentJoke.Contains(joke))
+            if (!CurrentJoke.Contains(jokeHere))
             {
-                CurrentJoke[jokecount] = joke;
+                CurrentJoke[jokecount] = jokeHere;
             }
         }
     }
