@@ -42,7 +42,8 @@ public class IndexModel : PageModel
 
         while (jokecount < NumOfJokes)
         {
-            int dadJokeIndex = Random.Shared.Next(DadJokes.Length);
+            Random rnd = new();
+            int dadJokeIndex = rnd.Next(DadJokes.Length);
             string jokeHere = DadJokes[dadJokeIndex];
 
             if (!CurrentJoke.Contains(jokeHere)) // if it doesn't exist it will not be added. 
