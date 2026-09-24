@@ -1,0 +1,28 @@
+@page
+@model Module4Challenge.Pages.DadJokesModel
+@{
+    ViewData["Title"] = "Dad Jokes Generator";
+}
+
+<div class="container mt-3">
+
+    <h1 class="text-center">Dad Jokes Generator</h1>
+    <!-- using the card method to display it as a card. -->
+   
+   <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="mb-3">Here are the dad jokes: </h4>
+            @foreach (string joke in Model.CurrentJoke){ <!-- this is the loop being made for the card itself and referring to the CurrentJoke model on the cshtml section.-->
+                <p class="card-text">@joke</p>
+            }
+
+        </div>
+    </div>
+<!-- this will submit the button for the user to generate the dad joke. -->
+    <div class="text-center">
+        <form method="post">
+            <button type="submit" class="btn btn-primary"> More Jokes </button>
+        </form>
+    </div>
+<p><strong>Thank you for participing in the Dad Joke Generator.</strong></p>
+</div>
